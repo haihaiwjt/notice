@@ -31,3 +31,5 @@
 /out/production/notice/notice.iml
 /out/production/notice/notice.jar
 /out/production/notice/start.bat
+/out/artifacts/notice_jar/notice.jar
+/out/production/notice/.gitignore

@@ -43,7 +43,7 @@ public class Notice {
         final int[] i = {0};
         if(!queue.isEmpty()){
             queue.forEach(element -> {
-                if(element.getSetTime().equals(setTime)){
+                if(element != null && element.getSetTime().equals(setTime) && i[0] == 0){
                     queue.remove(element);
                     i[0]++;
                     System.out.println("已删除闹钟" + setTime);
@@ -76,7 +76,7 @@ public class Notice {
         LocalTime oldTime = CommonUtil.stringTimeToLocalTime(oldStringTime);
         LocalTime newTime = CommonUtil.stringTimeToLocalTime(newStringTime);
         queue.forEach(element ->{
-            if(element.getSetTime().equals(oldTime)){
+            if(element.getSetTime().equals(oldTime) && i[0] == 0){
                 element.setSetTime(newTime);
                 System.out.println("修改闹钟"+ oldTime +"成功");
                 i[0]++;

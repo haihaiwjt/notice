@@ -36,8 +36,10 @@ public class InputListener implements Runnable {
                     case EXIT -> {
                         if(notice.exitService()) {
                             scanner.close();
+                            continue;
                         }
                         throw new RuntimeException("退出出错，叫程序员debug吧");}
+
 
                     case LIST -> {
                         if(notice.list()) continue;
