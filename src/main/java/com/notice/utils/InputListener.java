@@ -70,6 +70,7 @@ public class InputListener implements Runnable {
                     case HELP -> {notice.help();}
 
                     case CHANGENOTICE -> {
+
                         String[] times = CommonUtil.findChangeTime(inputString);
                         if(notice.change(times)) {
                             notice.addNewNotice();

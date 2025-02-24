@@ -26,7 +26,7 @@ public class CommonUtil {
     }
 
     public static String[] findChangeTime(String input) {
-        Pattern pattern = Pattern.compile(" \\d{2} \\d{2} \\d{2}");
+        Pattern pattern = Pattern.compile(" \\d{2}\\s+\\d{2}\\s+\\d{2}");
         Matcher matcher = pattern.matcher(input);
         int i = 0;
         String[] string = {"",""};
