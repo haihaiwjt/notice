@@ -40,7 +40,6 @@ public class InputListener implements Runnable {
                         }
                         throw new RuntimeException("退出出错，叫程序员debug吧");}
 
-
                     case LIST -> {
                         if(notice.list()) continue;
                         throw new RuntimeException("没能给出闹钟列表真是抱歉啊");
@@ -90,15 +89,14 @@ public class InputListener implements Runnable {
                     throw new RuntimeException(e);
                 }
             }
+//            System.out.println("输入线程结束");
         }
 
         private Task setTask(LocalTime time) {
             LocalTime tempTime = time.truncatedTo(ChronoUnit.SECONDS);
             return new Task(() -> {
-                String message;
-                // 若相等，则给出弹窗提示
                 // 图形化弹窗展示
-                message = "到时间啦，阿米娅提醒博士要去休息了呢，劳逸结合才能更好学习呀";
+                String message = "到时间啦，阿米娅提醒博士要去休息了呢，劳逸结合才能更好学习呀";
                 SwingUtilities.invokeLater(new PopPrompt(message));
 //                System.out.println("请输入下一个时间或输入exit退出：");
             },tempTime);

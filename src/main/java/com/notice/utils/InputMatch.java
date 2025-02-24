@@ -6,12 +6,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class InputMatch {
-    private static final String ADDPATTERN = "add \\d{2} \\d{2} \\d{2}";
-    private static final  String DELETEPATTERN = "^delete \\d{2} \\d{2} \\d{2}$";
-    private static final  String CHANGEPATTERN = "^change \\d{2} \\d{2} \\d{2} to \\d{2} \\d{2} \\d{2}$";
-    private static final  String EXITPATTERN = "^exit$";
-    private static final String LISTPATTERN = "^list$";
-    private static final String HELPPATTERN = "^help$";
+    private static final String ADDPATTERN = "^\\s+add\\s+\\d{2}\\s+\\d{2}\\s+\\d{2}\\s+$";
+    private static final  String DELETEPATTERN = "^\\s+delete\\s+\\d{2}\\s+\\d{2}\\s+\\d{2}\\s+$";
+    private static final  String CHANGEPATTERN = "^\\s+change\\s+\\d{2}\\s+\\d{2}\\s+\\d{2}\\s+to\\s+\\d{2}\\s+\\d{2}\\s+\\d{2}\\s+$";
+    private static final  String EXITPATTERN = "^\\s*exit\\s*$";
+    private static final String LISTPATTERN = "^\\s*(list|/l)\\s*$";
+    private static final String HELPPATTERN = "^\\s*(help|/help|/h)\\s*$";
     
     public static Operation matchOperation(String input) {
         Pattern pattern;

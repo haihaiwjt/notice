@@ -15,7 +15,7 @@ public class PopPrompt implements Runnable {
     public void run() {
         // 创建一个JFrame实例
         JFrame parentFrame = new JFrame();
-        parentFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        parentFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         // 创建一个JDialog实例
         JDialog dialog = new JDialog(parentFrame, "阿米娅闹钟提示博士", true); // 设置为模态对话框
@@ -41,5 +41,6 @@ public class PopPrompt implements Runnable {
 
         // 显示对话框
         dialog.setVisible(true);
+//        System.out.println("弹窗提示已展示");
     }
 }

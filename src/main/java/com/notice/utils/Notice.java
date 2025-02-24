@@ -38,6 +38,11 @@ public class Notice {
         trigger.wakeUpAll();
         return true;
     }
+    public void stopService(){
+        if (executorService != null && !executorService.isShutdown()) {
+            executorService.shutdown();
+        }
+    }
     //删除闹钟
     public Boolean delete(LocalTime setTime){
         final int[] i = {0};
@@ -85,7 +90,6 @@ public class Notice {
         return i[0] > 0;
     }
 
-
     public Trigger getTrigger(){
         return this.trigger;
     }
@@ -103,6 +107,7 @@ public class Notice {
                         conditionAll.await();
                     }
                     if (queue.isEmpty()) {
+//                        System.out.println("准备退出trigger线程");
                         continue;
                     }
 
@@ -119,7 +124,9 @@ public class Notice {
                     //时间到了，执行任务
                     if (waitTime == 0) {
                         lateTask = queue.poll();
-                        executorService.execute(lateTask.getJob());
+                        if (lateTask != null) {
+                            executorService.execute(lateTask.getJob());
+                        }
                     } else {
                         //等待对应时间
                         System.out.println("下一个闹钟要等待" + waitTime + "秒\n请输入新的时间或exit退出程序");
@@ -131,6 +138,7 @@ public class Notice {
                     lock.unlock();
                 }
             }
+//            System.out.println("trigger线程结束");
         }
 
         void wakeUpSingle(){

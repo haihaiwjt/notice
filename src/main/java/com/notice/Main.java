@@ -3,7 +3,7 @@ package src.main.java.com.notice;
 import src.main.java.com.notice.utils.InputListener;
 import src.main.java.com.notice.utils.Notice;
 
-import static src.main.java.com.notice.utils.Notice.queue;
+
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {
@@ -16,7 +16,8 @@ public class Main {
         while(!Notice.needExit){
             Thread.sleep(1000);
         }
-        notice.executorService.shutdown();
+        notice.stopService();
         System.out.println("exit Notice");
+        System.exit(0);
     }
 }

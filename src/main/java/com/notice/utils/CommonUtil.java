@@ -19,7 +19,9 @@ public class CommonUtil {
 
     // 将空格转换为时间格式
     public static String changeToTimePattern(String inputString) {
-        String[] parts = inputString.split(" ");
+        String tempInput = inputString.trim();
+        String oneSpaceInput = tempInput.replaceAll("\\s+"," ");
+        String[] parts = oneSpaceInput.split(" ");
         return parts[1] + ":" + parts[2] + ":" + parts[3];
     }
 
